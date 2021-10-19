@@ -57,7 +57,7 @@ This problem is also seen in the barber pole illusion.
 
 ## 7.2 Lukas-Kanade Method
 
- ### 7.2.1 Motivation for Lucas-Kanade
+### 7.2.1 Motivation for Lucas-Kanade
 
  From 7.1, we were left with some ambiguity: we have 2 unknowns (u, v) at every pixel in the image, where u(x, y) represents x-direction motion and v(x, y) represents y-direction motion. Specifically, we have the equation:
 
@@ -104,7 +104,7 @@ This problem is also seen in the barber pole illusion.
 
  In 7.2.2, we will resolve this overconstraint issue.
 
- ### 7.2.2 Lucas-Kanade Flow
+### 7.2.2 Lucas-Kanade Flow
  By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
  In 7.2.1, we showed an example where we were overconstrained with 25 equations solving 2 unknowns. To resolve this issue, we will use least-squares to solve for the vector \\(\begin{bmatrix} u\\ v\\ \end{bmatrix} \\).
@@ -152,7 +152,7 @@ This problem is also seen in the barber pole illusion.
  - The eigenvector with the larger eigenvalue contains the direction of fastest intensity change
  - The other eigenvector is perpendicular to the first
 
- ### 7.2.3 Interpreting the Eigenvalues
+### 7.2.3 Interpreting the Eigenvalues
 
  As noted in 7.2.2, eigenvalues should have a certain size and proportion to each other in order to provide reliable corner detection. The following image outlines the effects of each eigenvalue scenario and their pitfalls.
  As a result, the component of (u,v) that is parallel to the gradient can be measured well, but the component of (u,v) that is perpendicular to the gradient (parallel to edge) cannot be measured with confidence.
@@ -166,7 +166,7 @@ This problem is also seen in the barber pole illusion.
  2. **Flats:** Flat areas are regions of low texture. These are challenging because of their homogeneity and are not easily distinguishable.
  3. **Corners:** Corners are the regions we would like to capture in our Lucas-Kanade study. These provide relatively large eigenvalues for each eigenvector, and are relatively distinguishable features.
 
- ### 7.2.4 Improving Accuracy
+### 7.2.4 Improving Accuracy
 
  In this section, we will evaluate areas for accuracy improvement.
 
