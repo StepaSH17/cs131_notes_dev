@@ -102,9 +102,9 @@ $$ \begin{equation} \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t =
 
 Note this single equation by itself cannot recover image motion (u, v) since there are two unknowns.
 
-However, we can leverage the assumption of spatial coherence that states neighboring pixels move similarly so it can be assumed  u, v values for a pixel should be identical to u,v values of its neighboring pixels to obtain additional equations to solve for u, v. This is discussed later.
+However, we can leverage the assumption of spatial coherence that states neighboring pixels move similarly so it can be assumed  u, v values for a pixel should be identical to u, v values of its neighboring pixels to obtain additional equations to solve for u, v. This is discussed later.
 
-Note a constraint of the brightness constancy assumption is that the component of the flow perpendicular to the gradient, which is parallel to the edge, cannot be measured because equation is underdetermined.
+Note a constraint of the brightness constancy assumption is that the component of the flow perpendicular to the gradient, which is parallel to the edge, cannot be measured because equation above is underdetermined.
 
 This can be more easily seen via the diagram below and the following analysis considering:
 - If (u, v) satisfies the equation above from brightness constancy assumption, then \\( \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \\)
