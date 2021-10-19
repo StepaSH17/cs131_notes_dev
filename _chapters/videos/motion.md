@@ -87,15 +87,15 @@ The Brightness Constancy Constraint:
 ![Brightness Constancy Constraint Img 1](https://user-images.githubusercontent.com/60531022/137871796-f6670afb-be0c-4c37-be0d-513816b7fbf4.png)
 
 Brightness Constancy Equation: 
-\\[I(x, y, t) = I(x + u, y + v, t + 1)]\\
+\\(I(x, y, t) = I(x + u, y + v, t + 1)\\)
 	
 Because we know u and v to be small (previous assumption), we can linearize the RHS of the above equation using the Taylor Expansion
 	
 \\(I(x + u, y + v, t + 1) \approx I(x, y, t) + I_x \cdot u + I_y \cdot v + I_t\\)
 	
-\\(I(x + u, y + v, t + 1) - I(x, y, t) \approx I_x \cdot u + I_y \cdot v + I_t)\\
+\\(I(x + u, y + v, t + 1) - I(x, y, t) \approx I_x \cdot u + I_y \cdot v + I_t\\)
 	
-Hence, \\(I_x \cdot u + I_y \cdot v + I_t \approx 0 \rightarrow \grad I \cdot \begin{bmatrix} u & v \end{bmatrix}_T + I_t = 0)\\
+Hence, \\(I_x \cdot u + I_y \cdot v + I_t \approx 0 \rightarrow \grad I \cdot \begin{bmatrix} u & v \end{bmatrix}_T + I_t = 0\\)
 
 By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
