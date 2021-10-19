@@ -26,30 +26,37 @@ order: 0
 
 ## 7.1 Optical Flow
 
-Overview:
+**Overview:**
 
 Video is sequence of frames captured over period of time
+
 Our image is now a function of space (x, y) and time (t)
 
-Why is motion useful:
+**Why is motion useful:**
 
 Tracking motion allows us to see how different parts of an image are moving (helps to gain better understanding of the flow of objects in a scene).
+
 Understanding an image is more about just the objects themselves: it's also useful to know how those objects are moving and interacting with other objects.
 
-Optical flow: 
+**Optical flow:**
 
 Definition: apparent motion of brightness patterns in the image
+
 It's important to note that apparent motion can be caused by lighting changes without actual physical motion. As an example, a sphere can appear to be rotating if the light that is directed upon it is rotating, even if the sphere is stationary.
+
 Ultimate goal: Recover image motion at each pixel from optical flow.
 
 ![Optical Flow Img 1](https://user-images.githubusercontent.com/60531022/137859011-c5040afe-c442-4096-b62e-b1d908150f59.png)
 
 Camera is moving towards the door.
+
 We want to measure how much EACH PIXEL is moving in the image plane.
+
 This motion is motion in 2D, represented by a vector field.
+
 At every pixel, we have a measurement of a vector which tells us how much each pixel moves from one frame to the next.
 
-Estimating Optical Flow:
+**Estimating Optical Flow:**
 	
 Assume that at time t, the 4 colored pixels are at a position shown on the left (initial positions are at the tail of the arrows). Let the positions of the pixels in the next frame, at time t + 1, be represented by the pixels at the head of the arrows on the left image, or simply the pixels in the right image.
 
@@ -57,43 +64,49 @@ Assume that at time t, the 4 colored pixels are at a position shown on the left 
 
 At every frame, we want to measure the apparent motion field represented by u (x, y) and v (x, y); at every pixel (x, y) we want to measure the x-component of the motion as u and the y-component of the motion as v. At every pixel, we are estimating the apparent motion u(x, y) and v(x, y).
 
-Key Assumptions:
+**Key Assumptions:**
 
 Brightness constancy: projection of the same point looks the same in every frame
+
 Small motion: points don't move very much
+
 Spatial Coherence: points move like their neighbors 
 
-Key Assumptions - small motions:
+**Key Assumptions - small motions:**
 	
 Between two frames, the amount of motion a pixel can take is very small.
+
 Pixels will not accelerate much
+
 Temporal Persistence: the image of a surface patch changes gradually over time.
 
-Key Assumptions - spatial coherence:
+**Key Assumptions - spatial coherence:**
 
 Neighboring points in a scene belong to the same surface, and hence typically have similar motions.
+
 Since they also project to nearby points in the image, we expect spatial coherence in image flow.
 
-Key Assumptions - brightness Constancy:
+**Key Assumptions - brightness Constancy:**
 
 When we see a pixel in one frame and when we see that same pixel in another frame, they will look very similar to each other. In other words, image measurements (i.e., brightness) in a small region remain the same even though their location may change.
 
-\\(I(x, y, t) = I(x + u(x,y), y + v(x, y), t + 1)\\)
+$$I(x, y, t) = I(x + u(x,y), y + v(x, y), t + 1$$
 	
 Basically, the equation is saying that image measurements (which includes appearance and brightness) in a location will remain the same even though their position may change. In other words, the pixel in one time step is going to be the same as the pixel in the next time stamp, at whatever new location that may be.
 
-The Brightness Constancy Constraint:
+**The Brightness Constancy Constraint:**
 
 ![Brightness Constancy Constraint Img 1](https://user-images.githubusercontent.com/60531022/137871796-f6670afb-be0c-4c37-be0d-513816b7fbf4.png)
 
-Brightness Constancy Equation: 
-\\(I(x, y, t) = I(x + u, y + v, t + 1)\\)
+**Brightness Constancy Equation:**
+
+$$I(x, y, t) = I(x + u, y + v, t + 1)$$
 	
 Because we know u and v to be small (previous assumption), we can linearize the RHS of the above equation using the Taylor Expansion
 	
-\\(I(x + u, y + v, t + 1) \approx I(x, y, t) + I_x \cdot u + I_y \cdot v + I_t\\)
+$$I(x + u, y + v, t + 1) \approx I(x, y, t) + I_x \cdot u + I_y \cdot v + I_t$$
 	
-\\(I(x + u, y + v, t + 1) - I(x, y, t) \approx I_x \cdot u + I_y \cdot v + I_t\\)
+$$I(x + u, y + v, t + 1) - I(x, y, t) \approx I_x \cdot u + I_y \cdot v + I_t$$
 	
 Hence, \\(I_x \cdot u + I_y \cdot v + I_t \approx 0 \rightarrow \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}_T + I_t = 0\\)
 
