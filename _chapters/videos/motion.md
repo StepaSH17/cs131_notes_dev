@@ -253,7 +253,7 @@ The Horn-Shunk method seeks to formulate optical flow as a global energy functio
  There are 3 major components of this equation to consider during our minimization process. \newline  
  1. The 
  \\((I_xu+ I_yv + I_t)^2 \\) component of the equation represents the brightness constancy, which we want to be equal to 0 in order to minimize our energy function. Thus, we want to calculate the values for u and v that minimize this term. \newline 
- 2. The \\(||\delta u||^2 + ||\delta v||^2) \\) component of the equation is the smoothness constant. By measuring the magnitude of the the gradient of u and the gradient of v, we are verifying that the changes between pixels are small. 
+ 2. The \\((||\delta u||^2 + ||\delta v||^2) \\) component of the equation is the smoothness constant. By measuring the magnitude of the the gradient of u and the gradient of v, we are verifying that the changes between pixels are small. 
  \newline 
  3. \\(\alpha \\) is the regularization constant. A larger alpha enforces our smoothness constraint more than the brightness constraint. 
 
