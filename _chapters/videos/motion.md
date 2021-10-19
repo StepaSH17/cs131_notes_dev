@@ -108,6 +108,7 @@ This problem is also seen in the barber pole illusion.
  By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
  In 7.2.1, we showed an example where we were overconstrained with 25 equations solving 2 unknowns. To resolve this issue, we will use least-squares to solve for the vector \\(\begin{bmatrix} u\\ v\\ \end{bmatrix} \\).
+ 
  $$ \begin{equation} \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \end{equation} $$
 
  Referring to our previous system of equations of form \\( A \cdot d = b \\), we will instead use the least-squares form \\( (A^{T}A)d = A^{T}b \\). This new system of equations is equivalent to:
@@ -135,9 +136,9 @@ This problem is also seen in the barber pole illusion.
 
  Some requirements for implementing Lucas-Kanade:
  This can be more easily seen via the diagram below and the following analysis considering:
- - If (u, v) satisfies the equation above from brightness constancy assumption, then \\( \nablaI \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \\)
- - Choose (u', v') is perpendicular to gradient of I, then \\( \nablaI \cdot \begin{bmatrix} u' & v' \end{bmatrix}^T = 0 \\)
- - Summing the two equations above yield: \\( \nablaI \cdot \begin{bmatrix} u+u' & v+v' \end{bmatrix}^T + I_t = 0 \\) demonstrating (u+u', v+v') also satisfies the equation above regardless of what (u', v') actually are as long as (u', v') are parallel to edge.
+ - If (u, v) satisfies the equation above from brightness constancy assumption, then \\( \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \\)
+ - Choose (u', v') is perpendicular to gradient of I, then \\( \nabla I \cdot \begin{bmatrix} u' & v' \end{bmatrix}^T = 0 \\)
+ - Summing the two equations above yield: \\( \nabla I \cdot \begin{bmatrix} u+u' & v+v' \end{bmatrix}^T + I_t = 0 \\) demonstrating (u+u', v+v') also satisfies the equation above regardless of what (u', v') actually are as long as (u', v') are parallel to edge.
 
  - \\( A^TA \\) should be invertible
  - \\( A^TA \\) should be large enough to minimize noise (e.g. eigenvalues \\( \lambda_1 \\) and \\( \lambda_2 \\) should be not too small
