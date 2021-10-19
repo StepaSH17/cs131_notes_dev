@@ -95,7 +95,7 @@ Because we know u and v to be small (previous assumption), we can linearize the 
 	
 \\(I(x + u, y + v, t + 1) - I(x, y, t) \approx I_x \cdot u + I_y \cdot v + I_t\\)
 	
-Hence, \\(I_x \cdot u + I_y \cdot v + I_t \approx 0 \rightarrow \grad{I} \cdot \begin{bmatrix} u & v \end{bmatrix}_T + I_t = 0\\)
+Hence, \\(I_x \cdot u + I_y \cdot v + I_t \approx 0 \rightarrow \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}_T + I_t = 0\\)
 
 By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
