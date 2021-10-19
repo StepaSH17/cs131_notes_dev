@@ -160,7 +160,7 @@ This problem is also seen in the barber pole illusion.
 
  <div class="fig figcenter fighighlight">
    <img src="{{ site.baseurl }}/videos/picture_7.3/LK_eig_interpretation.png">
-   <img src="{{ site.baseurl }}/videos/picture_7.1/Brightness_constancy_constraint.png">
+   <img src="{{ site.baseurl }}/videos/picture_7.1/Brightness_constancy_constraint.PNG">
  </div>
 
  1. **Edges:** Around edges, there is an aperture problem. We can measure optical flow in the direction perpendicular to the edge, but along the edge it is hard to discern change.
@@ -202,7 +202,7 @@ This problem is also seen in the barber pole illusion.
  - Assumed \\( A^TA \\) is easily invertible
  - Assumed there is not much noise (eigenvalues of \\( A^TA \\) not too small)
  <div class="fig figcenter fighighlight">
-   <img src="{{ site.baseurl }}/videos/picture_7.1/aperature_problem.png">
+   <img src="{{ site.baseurl }}/videos/picture_7.1/aperature_problem.PNG">
  </div>
 
  When these assumptions are violated,
