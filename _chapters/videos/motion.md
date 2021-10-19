@@ -111,13 +111,13 @@ This can be more easily seen via the diagram below and the following analysis co
 - Choose (u', v') is perpendicular to gradient of I, then \\( \nabla I \cdot \begin{bmatrix} u' & v' \end{bmatrix}^T = 0 \\)
 - Summing the two equations above yield: \\( \nabla I \cdot \begin{bmatrix} u+u' & v+v' \end{bmatrix}^T + I_t = 0 \\) demonstrating (u+u', v+v') also satisfies the equation above regardless of what (u', v') actually are as long as (u', v') are parallel to edge.
 
-As a result, the component of (u,v) that is parallel to the gradient can be measured well, but the component of (u,v) that is perpendicular to the gradient (parallel to edge) cannot be measured with confidence.
-
 <div class="fig figcenter fighighlight">
   <img src="{{ site.baseurl }}/videos/picture_7.1/Brightness_constancy_constraint.PNG">
 </div>
 
-This constraint can also be seen visually when considering "The aperature problem" as demonstrated in the figure below where a decreasing ramp moves identically when the entire ramp can be seen and when part of the ramp (outside of the circle) is masked. Although the ramp is moving identically, the perceived motion (when masking view outside the circle) differs from the actual motion. This demonstrates we can only visually see motion of the edge perpendicular to the edge because we're only measuring motion using a finite, small neighborhood, which again is called "The aperature problem".
+As a result, the component of (u,v) that is parallel to the gradient can be measured well, but the component of (u,v) that is perpendicular to the gradient (parallel to edge) cannot be measured with confidence.
+
+This constraint can also be seen visually when considering "The aperature problem" as demonstrated in the figure below where a downward ramp moves identically when the entire ramp can be seen and when part of the ramp (outside of the circle) is masked. Although the ramp is moving identically, the perceived motion (when masking view outside the circle) differs from the actual motion. This demonstrates we can only visually see the motion of the edge perpendicular to the edge because we're only measuring motion using a finite, small neighborhood, which again is called "The aperature problem".
 
 <div class="fig figcenter fighighlight">
   <img src="{{ site.baseurl }}/videos/picture_7.1/aperture_problem.PNG">
