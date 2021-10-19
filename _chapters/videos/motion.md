@@ -358,7 +358,7 @@ The Horn-Shunk method seeks to formulate optical flow as a global energy functio
 
  This should give you the primary tools to develop your notes. Check out the [markdown quick reference](https://wordpress.com/support/markdown-quick-reference/) for any further Markdown functionality that you may find useful, and reach out to the teaching team on Piazza if you have any questions about how to create your lecture notes
 
- ## 7.5 Applications
+## 7.5 Applications
  There are multiple things we can do with Motion Features once we estimate optical flow.
 
  Examples:
@@ -383,4 +383,4 @@ The Horn-Shunk method seeks to formulate optical flow as a global energy functio
      **Human Event Understanding: From Actions to Tasks**
          - http://tv.vera.com.uy/video/55276
      **Optical Flow without Motion**
-         - As humans we can sometimes perceive motion even when the object is static  
+         - As humans we can sometimes perceive motion even when the object is static 
