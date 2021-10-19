@@ -105,14 +105,10 @@ This problem is also seen in the barber pole illusion.
  In 7.2.2, we will resolve this overconstraint issue.
 
 ### 7.2.2 Lucas-Kanade Flow
- By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
  In 7.2.1, we showed an example where we were overconstrained with 25 equations solving 2 unknowns. To resolve this issue, we will use least-squares to solve for the vector \\(\begin{bmatrix} u\\ v\\ \end{bmatrix} \\).
- 
- $$ \begin{equation} \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \end{equation} $$
 
  Referring to our previous system of equations of form \\( A \cdot d = b \\), we will instead use the least-squares form \\( (A^{T}A)d = A^{T}b \\). This new system of equations is equivalent to:
- Note this single equation by itself cannot recover image motion (u, v) since there are two unknowns.
 
  $$
  \begin{bmatrix}
@@ -129,16 +125,10 @@ This problem is also seen in the barber pole illusion.
  \Sigma I_yI_t\\
  \end{bmatrix}
  $$
- However, we can leverage the assumption of spatial coherence that states neighboring pixels move similarly so it can be assumed  u, v values for a pixel should be identical to u,v values of its neighboring pixels to obtain additional equations to solve for u, v. This is discussed later.
-
+ 
  The dimensions of resulting matrix are (2 x 2) x (2 x 1) = 2 x 1, exactly what we wanted.
- Note a constraint of the brightness constancy assumption is that the component of the flow perpendicular to the gradient, which is parallel to the edge, cannot be measured because equation is underdetermined.
 
  Some requirements for implementing Lucas-Kanade:
- This can be more easily seen via the diagram below and the following analysis considering:
- - If (u, v) satisfies the equation above from brightness constancy assumption, then \\( \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \\)
- - Choose (u', v') is perpendicular to gradient of I, then \\( \nabla I \cdot \begin{bmatrix} u' & v' \end{bmatrix}^T = 0 \\)
- - Summing the two equations above yield: \\( \nabla I \cdot \begin{bmatrix} u+u' & v+v' \end{bmatrix}^T + I_t = 0 \\) demonstrating (u+u', v+v') also satisfies the equation above regardless of what (u', v') actually are as long as (u', v') are parallel to edge.
 
  - \\( A^TA \\) should be invertible
  - \\( A^TA \\) should be large enough to minimize noise (e.g. eigenvalues \\( \lambda_1 \\) and \\( \lambda_2 \\) should be not too small
@@ -156,11 +146,9 @@ This problem is also seen in the barber pole illusion.
 ### 7.2.3 Interpreting the Eigenvalues
 
  As noted in 7.2.2, eigenvalues should have a certain size and proportion to each other in order to provide reliable corner detection. The following image outlines the effects of each eigenvalue scenario and their pitfalls.
- As a result, the component of (u,v) that is parallel to the gradient can be measured well, but the component of (u,v) that is perpendicular to the gradient (parallel to edge) cannot be measured with confidence.
 
  <div class="fig figcenter fighighlight">
    <img src="{{ site.baseurl }}/videos/picture_7.3/LK_eig_interpretation.png">
-   <img src="{{ site.baseurl }}/videos/picture_7.1/Brightness_constancy_constraint.PNG">
  </div>
 
  1. **Edges:** Around edges, there is an aperture problem. We can measure optical flow in the direction perpendicular to the edge, but along the edge it is hard to discern change.
@@ -178,7 +166,6 @@ This problem is also seen in the barber pole illusion.
  $$
 
  This is an approximation, but if we add back higher order terms, we can achieve even greater accuracy:
- This constraint can also be seen visually when considering "The aperature problem" as demonstrated in the figure below where a decreasing ramp moves identically when the entire ramp can be seen and when part of the ramp (outside of the circle) is masked. Although the ramp is moving identically, the perceived motion (when masking view outside the circle) differs from the actual motion. This demonstrates we can only visually see motion of the edge perpendicular to the edge because we're only measuring motion using a finite, small neighborhood, which again is called "The aperature problem".
 
  \\( I(x, y) + I_xu + I_yv + \\) higher order terms \\( - I_t(x, y)\\)
 
@@ -201,12 +188,8 @@ This problem is also seen in the barber pole illusion.
 
  - Assumed \\( A^TA \\) is easily invertible
  - Assumed there is not much noise (eigenvalues of \\( A^TA \\) not too small)
- <div class="fig figcenter fighighlight">
-   <img src="{{ site.baseurl }}/videos/picture_7.1/aperature_problem.PNG">
- </div>
 
  When these assumptions are violated,
- This problem is also seen in the barber pole illusion. 
 
  - Our small motion assumption is invalid (see 7.1 and 7.2.4)
  - Brightness constancy is not satisfied (can't rely on intensity values)
