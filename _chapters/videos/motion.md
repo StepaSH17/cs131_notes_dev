@@ -361,26 +361,36 @@ The Horn-Shunk method seeks to formulate optical flow as a global energy functio
 ## 7.5 Applications
  There are multiple things we can do with Motion Features once we estimate optical flow.
 
- Examples:
-    **Estimating 3D Structure:**
-         Given an input sequence we can calculate how pixels move between frames and that can help us estimate the 3D structure of the scene.
-    **Segmenting Objects Based on Motion Cues**
-    	*1. Background subtraction:*	
-             - In a fixed camera setting, for example, surveillance, you may want to identify the pixels that belong to the background scene. One way to do that is by calculating optical flow and deciding which pixels never move in the scene. Those may correspond to the background of the scene.     
-             - So assuming that we have a static camera that is observing the scene, our goal here would be to separate the static background from the moving foreground.
-         *2. Motion Segmentation:*
-             - We can also use motion estimation to perform segmentation of video sequences. The ideas is to divide the video into multiple coherently moving objects.
-         *3. Tracking Objects:*
-             - We can also perform tracking, where we’re trying to follow an object as it moves through the video.
-             - For example in this traffic scene, we are trying to follow this care is it moves through the highway.
-         *4. Synthetic Dynamic Textures:*
-             - The idea is that you’re given a short clip of a moving texture, and you want to produce a longer clip that replicates the original motion
-    **Super-Resolution**
-         - The ideas of motion can also be applied to super-resolution. We start with a set of low-quality images of the same scene. By estimating how pixels may move from one image to the other we can actually recover a higher-resolution version of the image. 
-     **Recognizing events and activities**
-         - We can estimate a persons body position and then try to analyze how the body moves to try to recognize the type of activity the person is performing.
-         - In his own research, he has used motion to try to recognize human actives, for example, different types of speed in figure skating. We can also try to recognize events that happen in groups of people. (i.e. Crossing, Talking, Queuing, Dancing, Jogging)
-     **Human Event Understanding: From Actions to Tasks**
-         - http://tv.vera.com.uy/video/55276
-     **Optical Flow without Motion**
-         - As humans we can sometimes perceive motion even when the object is static 
+ Application Examples: </br>
+ </br>
+ &nbsp;&nbsp; 	**Estimating 3D Structure:** <br/>
+ &nbsp; &nbsp;&nbsp;	Given an input sequence we can calculate how pixels move between frames and that can help us estimate the 3D structure of the scene. <br/>
+ <br/>
+ &nbsp;&nbsp;	**Segmenting Objects Based on Motion Cues:** <br/>
+ <br/>
+ &nbsp;&nbsp;&nbsp;       ***1. Background subtraction:*** <br/>
+ &nbsp;&nbsp;&nbsp;&nbsp; - In a fixed camera setting, for example, surveillance, you may want to identify the pixels that belong to the background scene. One way to do that is by calculating optical flow and deciding which pixels never move in the scene. Those may correspond to the background of the scene. <br/>
+ &nbsp;&nbsp;&nbsp;&nbsp; - So assuming that we have a static camera that is observing the scene, our goal here would be to separate the static background from the moving foreground. <br/>
+ <br/>
+ &nbsp;&nbsp;&nbsp;  	***2. Motion Segmentation:*** <br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;		- We can also use motion estimation to perform segmentation of video sequences. The ideas is to divide the video into multiple coherently moving objects.<br/>
+ <br/>
+ &nbsp;&nbsp;&nbsp; 	***3. Tracking Objects:***<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;		- We can also perform tracking, where we’re trying to follow an object as it moves through the video. <br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;		- For example in this traffic scene, we are trying to follow this care is it moves through the highway. <br/>
+ <br/>
+ &nbsp;&nbsp;&nbsp;  	***4. Synthetic Dynamic Textures:*** <br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;		- The idea is that you’re given a short clip of a moving texture, and you want to produce a longer clip that replicates the original motion <br/>
+ <br/>
+ &nbsp;&nbsp;   **Super-Resolution** <br/>
+ &nbsp;&nbsp;&nbsp;          - The ideas of motion can also be applied to super-resolution. We start with a set of low-quality images of the same scene. By estimating how pixels may move from one image to the other we can actually recover a higher-resolution version of the image. <br/>
+ <br/>
+ &nbsp;&nbsp;   **Recognizing events and activities** <br/>
+ &nbsp;&nbsp;&nbsp;     	- We can estimate a persons body position and then try to analyze how the body moves to try to recognize the type of activity the person is performing.<br/>
+ &nbsp;&nbsp;&nbsp; 	- In his own research, he has used motion to try to recognize human actives, for example, different types of speed in figure skating. We can also try to recognize events that happen in groups of people. (i.e. Crossing, Talking, Queuing, Dancing, Jogging) <br/>
+ <br/>
+ &nbsp;&nbsp;    **Human Event Understanding: From Actions to Tasks** <br/>
+ &nbsp;&nbsp;&nbsp;    	- http://tv.vera.com.uy/video/55276 <br/>
+ <br/>
+ &nbsp;&nbsp;     **Optical Flow without Motion** <br/>
+ &nbsp;&nbsp;&nbsp;       - **Fun Fact: As humans we can sometimes perceive motion even when the object is static.** <br/>
