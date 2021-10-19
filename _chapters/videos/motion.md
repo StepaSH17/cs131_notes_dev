@@ -98,7 +98,7 @@ This should give you the primary tools to develop your notes. Check out the [mar
 
 By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
-$$ \begin{equation} \nablaI \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \end{equation} $$
+$$ \begin{equation} \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \end{equation} $$
 
 Note this single equation by itself cannot recover image motion (u, v) since there are two unknowns.
 
@@ -107,20 +107,20 @@ However, we can leverage the assumption of spatial coherence that states neighbo
 Note a constraint of the brightness constancy assumption is that the component of the flow perpendicular to the gradient, which is parallel to the edge, cannot be measured because equation is underdetermined.
 
 This can be more easily seen via the diagram below and the following analysis considering:
-- If (u, v) satisfies the equation above from brightness constancy assumption, then \\( \nablaI \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \\)
-- Choose (u', v') is perpendicular to gradient of I, then \\( \nablaI \cdot \begin{bmatrix} u' & v' \end{bmatrix}^T = 0 \\)
-- Summing the two equations above yield: \\( \nablaI \cdot \begin{bmatrix} u+u' & v+v' \end{bmatrix}^T + I_t = 0 \\) demonstrating (u+u', v+v') also satisfies the equation above regardless of what (u', v') actually are as long as (u', v') are parallel to edge.
+- If (u, v) satisfies the equation above from brightness constancy assumption, then \\( \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \\)
+- Choose (u', v') is perpendicular to gradient of I, then \\( \nabla I \cdot \begin{bmatrix} u' & v' \end{bmatrix}^T = 0 \\)
+- Summing the two equations above yield: \\( \nabla I \cdot \begin{bmatrix} u+u' & v+v' \end{bmatrix}^T + I_t = 0 \\) demonstrating (u+u', v+v') also satisfies the equation above regardless of what (u', v') actually are as long as (u', v') are parallel to edge.
 
 As a result, the component of (u,v) that is parallel to the gradient can be measured well, but the component of (u,v) that is perpendicular to the gradient (parallel to edge) cannot be measured with confidence.
 
 <div class="fig figcenter fighighlight">
-  <img src="{{ site.baseurl }}/videos/picture_7.1/Brightness_constancy_constraint.png">
+  <img src="{{ site.baseurl }}/videos/picture_7.1/Brightness_constancy_constraint.PNG">
 </div>
 
 This constraint can also be seen visually when considering "The aperature problem" as demonstrated in the figure below where a decreasing ramp moves identically when the entire ramp can be seen and when part of the ramp (outside of the circle) is masked. Although the ramp is moving identically, the perceived motion (when masking view outside the circle) differs from the actual motion. This demonstrates we can only visually see motion of the edge perpendicular to the edge because we're only measuring motion using a finite, small neighborhood, which again is called "The aperature problem".
 
 <div class="fig figcenter fighighlight">
-  <img src="{{ site.baseurl }}/videos/picture_7.1/aperature_problem.png">
+  <img src="{{ site.baseurl }}/videos/picture_7.1/aperture_problem.PNG">
 </div>
 
 This problem is also seen in the barber pole illusion. 
