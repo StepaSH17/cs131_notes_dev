@@ -361,8 +361,8 @@ The Horn-Shunk method seeks to formulate optical flow as a global energy functio
 ## 7.5 Applications
  There are multiple things we can do with Motion Features once we estimate optical flow.
 
- Application Examples: </br>
- </br>
+ Application Examples: <br/>
+ <br/>
  &nbsp;&nbsp; 	**Estimating 3D Structure:** <br/>
  &nbsp; &nbsp;&nbsp;	Given an input sequence we can calculate how pixels move between frames and that can help us estimate the 3D structure of the scene. <br/>
  <br/>
