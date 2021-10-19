@@ -108,7 +108,7 @@ This problem is also seen in the barber pole illusion.
  By leveraging the brightness constancy assumption and the previous derivation, an equation that relates the gradient of I, u, v, and I_t(Image derivative along t) is obtained:
 
  In 7.2.1, we showed an example where we were overconstrained with 25 equations solving 2 unknowns. To resolve this issue, we will use least-squares to solve for the vector \\(\begin{bmatrix} u\\ v\\ \end{bmatrix} \\).
- $$ \begin{equation} \nablaI \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \end{equation} $$
+ $$ \begin{equation} \nabla I \cdot \begin{bmatrix} u & v \end{bmatrix}^T + I_t = 0 \end{equation} $$
 
  Referring to our previous system of equations of form \\( A \cdot d = b \\), we will instead use the least-squares form \\( (A^{T}A)d = A^{T}b \\). This new system of equations is equivalent to:
  Note this single equation by itself cannot recover image motion (u, v) since there are two unknowns.
