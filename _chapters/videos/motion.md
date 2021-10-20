@@ -5,6 +5,10 @@ order: 0
 ---
 
 - [7.1 Optical Flow](#7.1-optical-flow)
+	- [7.1.1 Overview](#7.1.1-motivation-for-lucas-kanade)
+	- [7.1.2 Key Assumptions](#7.1.2-key_assumptions)
+	- [7.1.3 The Brightness Constancy Constraint](7.1.3-the-brightness-constancy-constraint)
+	- [7.1.4 The Aperture Problem](7.1.4-the-aperture-problem)
 - [7.2 Lukas-Kanade Method](#7.2-lukas-kanade method)
 	- [7.2.1 Motivation for Lucas-Kanade](#7.2.1-motivation-for-lucas-kanade)
 	- [7.2.2 Lucas-Kanade Flow](#7.2.2-lucas-kanade-flow)
@@ -26,7 +30,7 @@ order: 0
 
 ## 7.1 Optical Flow
 
-**Overview:**
+### 7.1.1 Overview
 
 Video is sequence of frames captured over period of time
 
@@ -64,7 +68,7 @@ Assume that at time t, the 4 colored pixels are at a position shown on the left 
 
 At every frame, we want to measure the apparent motion field represented by u (x, y) and v (x, y); at every pixel (x, y) we want to measure the x-component of the motion as u and the y-component of the motion as v. At every pixel, we are estimating the apparent motion u(x, y) and v(x, y).
 
-**Key Assumptions:**
+### 7.1.2 Key Assumptions
 
 Brightness constancy: projection of the same point looks the same in every frame
 
@@ -94,7 +98,7 @@ $$I(x, y, t) = I(x + u(x,y), y + v(x, y), t + 1$$
 	
 Basically, the equation is saying that image measurements (which includes appearance and brightness) in a location will remain the same even though their position may change. In other words, the pixel in one time step is going to be the same as the pixel in the next time stamp, at whatever new location that may be.
 
-**The Brightness Constancy Constraint:**
+### 7.1.3 The Brightness Constancy Constraint
 
 ![Brightness Constancy Constraint Img 1](https://user-images.githubusercontent.com/60531022/137871796-f6670afb-be0c-4c37-be0d-513816b7fbf4.png)
 
@@ -131,7 +135,9 @@ This can be more easily seen via the diagram below and the following analysis co
 
 As a result, the component of (u,v) that is parallel to the gradient can be measured well, but the component of (u,v) that is perpendicular to the gradient (parallel to edge) cannot be measured with confidence.
 
-This constraint can also be seen visually when considering "The aperature problem" as demonstrated in the figure below where a downward ramp moves identically when the entire ramp can be seen and when part of the ramp (outside of the circle) is masked. Although the ramp is moving identically, the perceived motion (when masking view outside the circle) differs from the actual motion. This demonstrates we can only visually see the motion of the edge perpendicular to the edge because we're only measuring motion using a finite, small neighborhood, which again is called "The aperature problem".
+### 7.1.4 The Aperture Problem
+
+This constraint can also be seen visually when considering "The Aperture Problem" as demonstrated in the figure below where a downward ramp moves identically when the entire ramp can be seen and when part of the ramp (outside of the circle) is masked. Although the ramp is moving identically, the perceived motion (when masking view outside the circle) differs from the actual motion. This demonstrates we can only visually see the motion of the edge perpendicular to the edge because we're only measuring motion using a finite, small neighborhood, which again is called "The Aperture Problem".
 
 <div class="fig figcenter fighighlight">
   <img src="{{ site.baseurl }}/videos/picture_7.1/aperture_problem.PNG">
