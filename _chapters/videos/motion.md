@@ -6,7 +6,7 @@ order: 0
 
 - [7.1 Optical Flow](#7.1-optical-flow)
 	- [7.1.1 Overview](#7.1.1-motivation-for-lucas-kanade)
-	- [7.1.2 Key Assumptions](#7.1.2-key_assumptions)
+	- [7.1.2 Key Assumptions](#712-key-assumptions)
 	- [7.1.3 The Brightness Constancy Constraint](#7.1.3-the-brightness-constancy-constraint)
 	- [7.1.4 The Aperture Problem](#7.1.4-the-aperture-problem)
 - [7.2 Lukas-Kanade Method](#7.2-lukas-kanade method)
